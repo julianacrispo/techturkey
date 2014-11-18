@@ -1,0 +1,30 @@
+<%= form_for(@vendor) do |f| %>
+  <% if @vendor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+
+      <ul>
+      <% @vendor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :vname %><br>
+    <%= f.text_field :vname %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+
+  <% Brand.all.each do |brand| %>
+  <div>
+    <%= check_box_tag :brand_ids, brand.name, @vendor.brands.include?(brand), :name =>'vendor[brand_ids][]'%>
+    <%=label_tag :brand_ids, brand.name %>
+  </div>
+  <% end %>
+<%= submit_tag %>
+<% end %>

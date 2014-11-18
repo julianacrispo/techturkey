@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vendor.vname %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @vendor.image %>
+</p>
+
+<% @vendor.brands.each do |brand| %>
+<%= brand.name %>
+<% end %>
+
+<%= link_to 'Edit', edit_vendor_path(@vendor) %> |
+<%= link_to 'Back', vendors_path %>

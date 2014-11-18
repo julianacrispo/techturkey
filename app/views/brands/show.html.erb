@@ -8,6 +8,7 @@
 <p>
   <strong>Image:</strong>
   <%= @brand.image %>
+  <%= image_tag @brand.image.url(:medium) %>
 </p>
 
 <% @brand.vendors.each do |vendor| %>

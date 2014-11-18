@@ -1,4 +1,4 @@
-<%= form_for(@brand) do |f| %>
+<%= form_for @brand, html: { multipart: true } do |f| %>
   <% if @brand.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.file_field :image, class: "form-control" %>
   </div>
 
 <% Vendor.all.each do |vendor| %>

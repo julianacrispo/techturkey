@@ -5,7 +5,8 @@
   <tbody>
       <% @brands.each do |brand| %>
         <tr>
-          <td><%= image_tag brand.image.url(:medium) %></td>
+          <td> <%= link_to image_tag(brand.image.url(:medium)), brand %></td>
+
           <td><%= brand.name %></td>
           <td><%= link_to 'Show', brand_path(brand) %></td>
 
